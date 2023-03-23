@@ -230,40 +230,45 @@ public class Main {
 
 
     public static void Task7() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите количество слов: ");
-        int n = scanner.nextInt();
-        scanner.nextLine(); // Считываем лишний перенос строки
+        Scanner scan;
 
-        String firstWord = null;
-        for (int i = 0; i < n; i++) {
-            System.out.print("Введите слово: ");
-            String word = scanner.nextLine();
+        String text;
+        String[] textArray;
 
-            if (hasUniqueChars(word)) {
-                firstWord = word;
+        System.out.println("Введите текст:");
+
+        scan = new Scanner(System.in);
+        text = scan.nextLine();
+
+        textArray = text.split(" ");
+
+        for(int i = 0; i < textArray.length; i++) {
+            textArray[i] = textArray[i].replaceAll("[“:”,\"'`;()?_-]", "");
+            if(uniqueSymbolsChecker(textArray[i])) {
+                System.out.print("Cлово, состоящее только из различных символов: " + textArray[i] + "\n");
                 break;
             }
         }
-
-        if (firstWord == null) {
-            System.out.println("Нет слов, состоящих только из различных символов");
-        } else {
-            System.out.println("Первое слово, состоящее только из различных символов: " + firstWord);
-        }
     }
 
-    // Метод, который проверяет, состоит ли слово только из различных символов
-    public static boolean hasUniqueChars(String word) {
-        Set<Character> set = new HashSet<>();
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            if (set.contains(ch)) {
-                return false;
+    private static boolean uniqueSymbolsChecker(String word) {
+        boolean result = false;
+
+        ArrayList<Character> list = new ArrayList<>();
+        char[] chars = word.toCharArray();
+
+        for(char c : chars) {
+            if (list.contains(c)) {
+                result = false;
+                return result;
             }
-            set.add(ch);
+            else {
+                list.add(c);
+                result = true;
+            }
         }
-        return true;
+
+        return result;
     }
 
     public static void Task8() {
@@ -292,9 +297,9 @@ public class Main {
         }
 
         if (palindrome != null) {
-            System.out.println("Palindrome found: " + palindrome);
+            System.out.println("Палиндром слово: " + palindrome);
         } else {
-            System.out.println("No palindromes found.");
+            System.out.println("Палиндром не найден.");
         }
     }
 
@@ -313,11 +318,6 @@ public class Main {
             j--;
         }
         return true;
-    }
-
-
-    public static void Task9() {
-
     }
 
     public static void main(String[] args) {
