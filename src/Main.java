@@ -235,7 +235,7 @@ public class Main {
         String text;
         String[] textArray;
 
-        System.out.println("Введите текст:");
+        System.out.println("Введите слова через пробел:");
 
         scan = new Scanner(System.in);
         text = scan.nextLine();

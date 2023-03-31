@@ -18,7 +18,7 @@ public class Solution {
         System.out.println("Строка содержит 'Java': " + containsJava);
 
         int position = str.indexOf("Java");
-        System.out.println("Позиция подстроки 'Java' в строке: " + position);
+        System.out.println("Позиция подстроки Java в строке: " + position);
 
         String replacedString = str.replace('a', 'o');
         System.out.println("Строка после замены символов: " + replacedString);
@@ -123,7 +123,7 @@ public class Solution {
     }
 
     public static void zad6() {
-        String str = "Versions: Java 5, Java 6, Java 7, Java 8, Java 12.";
+        String str = "Versions: Java  5, Java 6, Java   7, Java 8, Java 12.";
         String pattern = "Java \\d+"; // регулярное выражение для поиска подстроки "Java X"
 
         // Создаем объект Pattern для заданного регулярного выражения
@@ -238,7 +238,7 @@ public class Solution {
             int n = scanner.nextInt();
             switch (n) {
                 case 0 -> f = false;
-                case 1 -> zad1("I like java!!1");
+                case 1 -> zad1("I like Java !!1");
                 case 2 -> zad2();
                 case 3 -> zad3("Object-oriented programming is a programming language model organized around objects rather than and data rather than logic. Object-oriented programming blabla. Object-oriented programming bla.");
                 case 4 -> zad4();

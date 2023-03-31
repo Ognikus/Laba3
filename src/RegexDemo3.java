@@ -9,7 +9,7 @@ public class RegexDemo3 {
     }
 
     public static boolean test(String testString) {
-        Pattern pattern = Pattern.compile(".+\\.(com|ua|ru|org)");
+        Pattern pattern = Pattern.compile(".+\\.(com|ua|ru|org|)");
         Matcher matcher = pattern.matcher(testString);
         return matcher.matches();
     }
